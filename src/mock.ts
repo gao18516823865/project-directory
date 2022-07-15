@@ -1,40 +1,40 @@
 export const fn1 = [
   {
-    path:"/ob",
-    name:"ob",
+    path:"/calendar",
+    name:"calendar",
     meta:{
-      title: "Ranks",
-      icon: "Baseball",
+      title: "日历",
+      icon: "Calendar",
     },
     component: "RouteView",
     children: [
       {
-        path: "/ob/obOne",
-        name: "obOne",
+        path: "/calendar/box",
+        name: "box",
         meta:{
-          title: "足球obOne",
+          title: "盒子",
           index:4,
         },
-        component: "ob/one",
+        component: "calendar/box",
       },
       {
-        path: "/ob/obTwo",
-        name: "obTwo",
+        path: "/calendar/CameraFilled",
+        name: "cameraFilled",
         meta:{
-          title: "拍球",
+          title: "相机",
           index:5,
         },
         hidden:true,
-        component: "ob/two",
+        component: "calendar/cameraFilled",
       }
     ]
   },{
-    path:"/ms",
-    name:"ms",
+    path:"/deleteFilled",
+    name:"deleteFilled",
     meta:{
-      title: "Ms",
-      icon: "Baseball",
+      title: "垃圾桶",
+      icon: "DeleteFilled",
     },
-    component: "ms/ms",
+    component: "deleteFilled/deleteFilled",
   }
 ]

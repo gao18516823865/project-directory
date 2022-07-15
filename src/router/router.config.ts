@@ -1,5 +1,5 @@
 
-import { UserLayout, BaseLayout, RouteView } from '@/layout';
+import { UserLayout, BaseLayout } from '@/layout';
 import { AppRouteRecordRaw } from "./types";
 const layoutModule = import.meta.glob("../layout/*.vue");
 function loadViewRouteView(view:string){
@@ -9,9 +9,10 @@ export const businessRouterMap = [{
     path:'/',
     name:'index',
     component: BaseLayout,
+    redirect:'dashboard',
     children:[
       {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'dashboard',
         meta:{
           title: '工作看板', icon: 'HomeFilled',
@@ -19,22 +20,13 @@ export const businessRouterMap = [{
         component: () => import('@/views/dashboard/index.vue'),
       },
       {
-        path:'/one',
-        name:'one',
-        meta:{
-          title: '电话',
-          icon: 'PhoneFilled',
-        },
-        component:() => import('@/views/one/one.vue')
-      },
-      {
-        path:'/two',
-        name:'two',
+        path:'/key',
+        name:'key',
         meta:{
           title: '秘钥',
           icon: 'Key',
         },
-        component:() => import('@/views/two/two.vue')
+        component:() => import('@/views/key/key.vue')
       },
       {
         path:'/three',
@@ -64,50 +56,10 @@ export const businessRouterMap = [{
           }
         ]
       },
-      // {
-      //   path:"/ob",
-      //   name:"ob",
-      //   meta:{
-      //     title: "Ranks",
-      //     icon: "Baseball",
-      //   },
-      //   component: RouteView,
-      //   children: [
-      //     {
-      //       path: "/ob/obOne",
-      //       name: "obOne",
-      //       meta:{
-      //         title: "足球",
-      //         index:4,
-      //       },
-      //       component: import('@/views/ob/one.vue'),
-      //     },
-      //     {
-      //       path: "/ob/obTwo",
-      //       name: "obTwo",
-      //       meta:{
-      //         title: "拍球",
-      //         index:5,
-      //       },
-      //       hidden:true,
-      //       component: import("@views/ob/two.vue"),
-      //     }
-      //   ]
-      // }
-      // ,{
-      //   path:"/ms",
-      //   name:"ms",
-      //   meta:{
-      //     title: "Ms",
-      //     icon: "Baseball",
-      //   },
-      //   component: import("@views/ms/ms.vue"),
-      // }
   ]
 }];
 // 基础路由
 export const constantRouterMap:Array<AppRouteRecordRaw> = [
-  ...businessRouterMap,
   {
     path: "/user",
     component:UserLayout,

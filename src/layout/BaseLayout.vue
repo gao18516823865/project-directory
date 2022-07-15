@@ -1,14 +1,13 @@
 <script lang="ts" setup>
-import { Ref, ref } from "vue"
+import { ref } from "vue"
 import SubMenu from '@components/SubMenu/SubMenu.vue'
 import MenuItem from '@components/MenuItem/MenuItem.vue'
-import { businessRouterMap } from '@router/router.config'
 import { useStore } from 'vuex'
 import { key } from '@store/index'
+import { AppRouteRecordRaw } from "@/router/types"
 const store = useStore(key)
-const defaultActive = ref(store.state.user?.defaultActive) as Ref<string>
-const roles = ref(businessRouterMap[0].children)
-console.log(roles,'---roles')
+const defaultActive = ref<string>(store.state.user!.defaultActive);
+const roles = ref<AppRouteRecordRaw[]>(store.state.asyncRouter!.allRoutes);
 </script>
 <template>
   <el-container class="common-layout">

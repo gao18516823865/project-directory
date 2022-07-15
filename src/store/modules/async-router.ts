@@ -5,6 +5,7 @@ import { fn1 } from '@/mock'
 const initialState = {
   routers: businessRouterMap,
   addRouters: [],
+  allRoutes: [],
 }
 export type ToAsyncRouter = typeof initialState
 export default {
@@ -15,6 +16,9 @@ export default {
   mutations: {
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers
+    },
+    SET_ALL_ROUTES: (state, routes) => {
+      state.allRoutes = routes
     }
   },
   actions: {

@@ -5,6 +5,7 @@ import router from './router/index'
 import 'element-plus/dist/index.css'
 import ElementPlus from 'element-plus'
 import * as ElIcons from '@element-plus/icons'
+import './permission'
 const app = createApp(App)
 for (const name in ElIcons){
 	app.component(name,(ElIcons as any)[name])
