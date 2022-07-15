@@ -127,10 +127,10 @@ export const constantRouterMap:Array<AppRouteRecordRaw> = [
     ]
   },
   {
-    path: '/:pathMatch(.*)',
-    name: 'error',
+    path: '/404',
+    name:'error',
     component: () => import('@/views/exception/404.vue'),
-    meta: { title: '404' },
-  },
+    meta: { title: '404' }
+  }
 ];
 export const RouterArray  = constantRouterMap;
