@@ -18,7 +18,11 @@ export default {
       state.addRouters = routers
     },
     SET_ALL_ROUTES: (state, routes) => {
-      state.allRoutes = routes
+      if(routes.length>0 && Array.isArray(routes)){
+        state.allRoutes = routes[0].children
+      }else {
+        state.allRoutes = routes
+      }
     }
   },
   actions: {

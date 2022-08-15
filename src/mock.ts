@@ -5,6 +5,7 @@ export const fn1 = [
     meta:{
       title: "日历",
       icon: "Calendar",
+      permission: ["calendar"]
     },
     component: "RouteView",
     children: [
@@ -14,6 +15,7 @@ export const fn1 = [
         meta:{
           title: "盒子",
           index:4,
+          permission: ["box"]
         },
         component: "calendar/box",
       },
@@ -23,6 +25,7 @@ export const fn1 = [
         meta:{
           title: "相机",
           index:5,
+          permission: ["cameraFilled"]
         },
         hidden:true,
         component: "calendar/cameraFilled",
@@ -34,6 +37,7 @@ export const fn1 = [
     meta:{
       title: "垃圾桶",
       icon: "DeleteFilled",
+      permission: ["deleteFilled"]
     },
     component: "deleteFilled/deleteFilled",
   }

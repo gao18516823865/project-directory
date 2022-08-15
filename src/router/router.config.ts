@@ -16,6 +16,7 @@ export const businessRouterMap = [{
         name: 'dashboard',
         meta:{
           title: '工作看板', icon: 'HomeFilled',
+          permission: ['dashboard']
         },
         component: () => import('@/views/dashboard/index.vue'),
       },
@@ -25,6 +26,7 @@ export const businessRouterMap = [{
         meta:{
           title: '秘钥',
           icon: 'Key',
+          permission: ['key']
         },
         component:() => import('@/views/key/key.vue')
       },
@@ -34,6 +36,7 @@ export const businessRouterMap = [{
         meta:{
           title: '足球',
           icon: 'Baseball',
+          permission: ['threeFather']
         },
         component: loadViewRouteView("RouteView"),
         children: [
@@ -42,6 +45,7 @@ export const businessRouterMap = [{
             name: 'ones',
             meta:{
               title: '足球',
+              permission: ['one']
             },
             component: () => import('@/views/three/three.vue'),
           },
@@ -50,6 +54,7 @@ export const businessRouterMap = [{
             name: 'four',
             meta:{
               title: '拍球',
+              permission: ['four']
             },
             hidden:true,
             component: () => import('@/views/four/four.vue'),

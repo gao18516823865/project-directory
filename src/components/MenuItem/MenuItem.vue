@@ -1,12 +1,12 @@
 <template>
-    <el-menu-item :index="item.path" v-if="!item.hidden">
-      <template #title>
-        <el-icon v-if="item.meta && item.meta.icon">
-          <component :is="item.meta.icon" />
-        </el-icon>
-        <span>{{ item.meta && item.meta.title }}</span>
-      </template>
-    </el-menu-item>
+  <el-menu-item :index="item.path" v-if="!item.hidden">
+    <el-icon v-if="item.meta && item.meta.icon">
+      <component :is="item.meta.icon" />
+    </el-icon>
+    <template #title>
+      <span>{{ item.meta && item.meta.title }}</span>
+    </template>
+  </el-menu-item>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

@@ -5,6 +5,7 @@ import { State } from ".."
 const initialState = {
   token:'',
   defaultActive:'',
+  collapsed:false,
 }
 export type ToUser = typeof initialState
 export default {
@@ -18,6 +19,9 @@ export default {
     },
     SET_DEFAULT_ACTIVE: (state, defaultActive) => {
       state.defaultActive = defaultActive
+    },
+    SET_COLLAPSED: (state, collapsed) => {
+      state.collapsed = collapsed
     }
   },
   actions:{

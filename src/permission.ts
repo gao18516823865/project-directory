@@ -35,7 +35,9 @@ router.beforeEach((to, from, next) => {
           let defaultRoutes = businessRouterMap as Array<AppRouteRecordRaw>;
           defaultRoutes[0].children?.push(...addRouters)
           // 侧边栏路由
-          store.commit('asyncRouter/SET_ALL_ROUTES',defaultRoutes[0].children )
+          store.commit('asyncRouter/SET_ALL_ROUTES',defaultRoutes)
+          // 权限按钮标记
+          store.commit('permission/SET_SIGN',defaultRoutes)
           initAddRoute(defaultRoutes)
         }).catch(() => {})
         hasRoutes = false

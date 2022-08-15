@@ -1,21 +1,28 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref, watch } from "vue"
 import SubMenu from '@components/SubMenu/SubMenu.vue'
 import MenuItem from '@components/MenuItem/MenuItem.vue'
+import BaseHeader from './BaseHeader.vue'
 import { useStore } from 'vuex'
 import { key } from '@store/index'
 import { AppRouteRecordRaw } from "@/router/types"
 const store = useStore(key)
 const defaultActive = ref<string>(store.state.user!.defaultActive);
 const roles = ref<AppRouteRecordRaw[]>(store.state.asyncRouter!.allRoutes);
+// watch 监听store.state.user.collapsed 改变
+
+const collapsed = ref<boolean>();
+watch(() => store.state.user!.collapsed, () => {
+  collapsed.value = store.state.user!.collapsed;
+})
 </script>
 <template>
   <el-container class="common-layout">
-    <el-header>Header</el-header>
+    <el-header><BaseHeader/></el-header>
     <el-container>
-      <el-aside width="200px">
+      <el-aside :width="collapsed? '64px': '200px'">
         <!-- 必须加el-menu 标签 因为 要做一些菜单操作 不要问 问就是elemen-ui 官网有  -->
-        <el-menu :router="true" :default-active="defaultActive">
+        <el-menu :router="true" :default-active="defaultActive" :collapse="collapsed" :width="collapsed? '64px': '200px'">
           <template v-for="item in roles">
             <!-- 如果有children 执行 -->
             <sub-menu v-if="item.children" :item="item" :key="item.path"></sub-menu>
@@ -44,4 +51,17 @@ const roles = ref<AppRouteRecordRaw[]>(store.state.asyncRouter!.allRoutes);
   margin: 0;
   padding: 0%;
 }
+/* 加过渡给侧边导航*/
+.el-aside {
+  transition: width 0.25s;
+  -webkit-transition: width 0.25s;
+  -moz-transition: width 0.25s;
+  -webkit-transition: width 0.25s;
+  -o-transition: width 0.25s;
+}
+/*加快侧边栏文字消失的速度*/
+.el-menu {
+  transition: all 10ms;
+}
+
 </style>
